@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 INSTALLED_APPS += [
     'debug_toolbar'
@@ -30,6 +30,8 @@ DEBUG_TOOLBAR_PANELS = [
 def show_toolbar(request):
     return True
 
+TIME_ZONE = 'UTC'
+USE_TZ = False
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
@@ -38,8 +40,12 @@ DEBUG_TOOLBAR_CONFIG = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'railway'),
+        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'eDAd-2Fdc11F*Fe*a-ba5ec*Fb4cbD66'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'roundhouse.proxy.rlwy.net'),  # Adjusted to use 'DB_HOST'
+        'PORT': os.environ.get('POSTGRES_PORT', '10364'), 
     }
 }
 

@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:eDAd-2Fdc11F*Fe*a-ba5ec*Fb4cbD66@roundhouse.proxy.rlwy.net:10364/railway
+  db:
+    image: postgres:latest
+    ports:
+      - 38810:38810
+    environment:
+      POSTGRES_DB: railway
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: eDAd-2Fdc11F*Fe*a-ba5ec*Fb4cbD66

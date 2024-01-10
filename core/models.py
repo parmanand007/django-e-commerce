@@ -184,3 +184,10 @@ def userprofile_receiver(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(userprofile_receiver, sender=settings.AUTH_USER_MODEL)
+
+
+class Client(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.pk}"
