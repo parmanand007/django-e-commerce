@@ -9,6 +9,8 @@ services:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:eDAd-2Fdc11F*Fe*a-ba5ec*Fb4cbD66@roundhouse.proxy.rlwy.net:10364/railway
+    volumes:
+      - .:/usr/src/app
   db:
     image: postgres:latest
     ports:

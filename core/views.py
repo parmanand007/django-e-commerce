@@ -349,7 +349,7 @@ class HomeView(ListView):
     model = Item
     paginate_by = 10
     template_name = "home.html"
-
+    
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
